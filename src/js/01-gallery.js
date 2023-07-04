@@ -3,26 +3,32 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 // Add imports above this line
 import { galleryItems } from './gallery-items';
 
+console.log(SimpleLightbox);
+
+console.log(galleryItems);
 // Change code below this line
 
 const gallery = document.querySelector('.gallery');
 console.log(gallery);
 // const itemsMarkup = createGalleryItemsMarkup(galleryItems);
 gallery.insertAdjacentHTML('beforeend', createMarkupItems(galleryItems));
-gallery.addEventListener('click', onImgClick)
 
+console.dir(gallery);
 
 function createMarkupItems(arr) {
     
-    return arr.map(({ preview, original, description }) => `
-  <a class="gallery__link" href="${original}">
-    <img
-      class="gallery__image"
-      src="${preview}"
-     data-source = "${original}"
-        alt="${description}" 
-    />
-  </a>
+  return arr
+    .map(({ preview, original, description }) => `
+  <li class="gallery__item">
+      <a class="gallery__link" href="${original}">
+        <img
+          class="gallery__image"
+          src="${preview}"
+        data-source = "${original}"
+            alt="${description}" 
+        />
+      </a>
+  </li>
     `)
         .join('')
 }

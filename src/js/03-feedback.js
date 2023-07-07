@@ -28,8 +28,10 @@ function onSubmitForm(evt) {
 
     evt.currentTarget.reset();
     localStorage.removeItem(localHost);
-    data = {};
+
     console.log(data);
+
+        data = {};
 }
 
 function resultInputForm() {
